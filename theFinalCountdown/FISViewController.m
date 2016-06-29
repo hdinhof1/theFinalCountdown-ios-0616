@@ -34,50 +34,68 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 
-
 }
-
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}- (IBAction)pauseTapped:(id)sender {
+    [self stopTimer];
+    
+    if ( [((UIButton *)sender).titleLabel.text isEqualToString:@"Pause"] ) {
+        [sender setTitle:@"Resume" forState:UIControlStateNormal];
+        [self stopTimer];
+        
+    }else {
+        self.countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.00 target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
+        [sender setTitle:@"Pause" forState:UIControlStateNormal];
+    }
+    
 }
 - (IBAction)startTapped:(id)sender {
     self.datePicker.hidden = YES;
     
-    [sender setTitle:@"Cancel" forState:UIControlStateNormal];
-    ((UIButton *)sender).tintColor = [UIColor redColor];
-    
-    self.pauseButton.enabled = YES;
-    self.timeText.hidden = NO;
-
-
-    self.startingSeconds = [self.datePicker countDownDuration];
-
-    
-    
-    //target:gonna call a method to invalidate sleep timer
-    self.countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.00 target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
- 
+    if ([((UIButton *)sender).titleLabel.text isEqualToString:@"Start"]) {
+        [sender setTitle:@"Cancel" forState:UIControlStateNormal];
+        ((UIButton *)sender).tintColor = [UIColor redColor];
+        //should use the !negation logic
+        self.pauseButton.enabled = YES;
+        self.timeText.hidden = NO;
+        
+        
+        self.startingSeconds = [self.datePicker countDownDuration];
+        // target:gonna call a method to invalidate sleep timer
+        self.countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1.00 target:self selector:@selector(updateTimer:) userInfo:nil repeats:YES];
+        
+    } else {
+        [self stopTimer];
+        self.startingSeconds = 0;
+        [sender setTitle:@"Start" forState:UIControlStateNormal];
+        ((UIButton *)sender).tintColor = [UIColor greenColor];  // :)
+        self.pauseButton.enabled = NO;
+        self.timeText.hidden = YES;
+        self.datePicker.hidden = NO;
+    }
 }
-- (IBAction)pauseTapped:(id)sender {
-    
-}
+
 -(void)updateTimer:(NSTimer *)timer {
     
     if (self.startingSeconds <= 0) {
-        [timer invalidate];
+        [self stopTimer];
     }
     else {
+        self.timeText.text = [self timeFormatted:self.startingSeconds];
+        NSLog(@"Timer is %@", [self timeFormatted:self.startingSeconds]);
         self.startingSeconds--;
-        NSString *timeFormatted = [self timeFormatted:self.startingSeconds];
-        self.timeText.text = timeFormatted;
-        NSLog(@"Timer is %@", timeFormatted);
-        
     }
-    
 }
+
+-(void)stopTimer {
+    [self.countdownTimer invalidate];
+    self.countdownTimer = nil;
+}
+
 - (NSString *)timeFormatted:(NSUInteger)totalSeconds
 {
     
@@ -85,7 +103,7 @@
     NSUInteger minutes = (totalSeconds / 60) % 60;
     NSUInteger hours = totalSeconds / 3600;
     
-    return [NSString stringWithFormat:@"%02lu:%02lu:%02lu",(unsigned long)hours, (unsigned long)minutes, (unsigned long)seconds];
+    return hours == 0 ? [NSString stringWithFormat:@"%02lu:%02lu", (unsigned long)minutes, (unsigned long)seconds] : [NSString stringWithFormat:@"%02lu:%02lu:%02lu",(unsigned long)hours, (unsigned long)minutes, (unsigned long)seconds];
 }
 
 @end
