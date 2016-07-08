@@ -4,7 +4,7 @@ source 'https://github.com/CocoaPods/Specs.git'
 # platform :ios, "8.0"
 
 target "theFinalCountdown" do
-
+  pod 'DKCircleButton', '~> 1.1'
 
 end
 

@@ -7,6 +7,7 @@
 //
 
 #import "FISViewController.h"
+#import "DKCircleButton.h"
 
 @interface FISViewController ()
 
@@ -26,15 +27,15 @@
 
     self.timeText.adjustsFontSizeToFitWidth = YES;
 
-
+    DKCircleButton *button1 = [[DKCircleButton alloc] initWithFrame:CGRectMake(0, 0, 90, 90)];
+    
+    button1.center = CGPointMake(160, 200);
+    button1.titleLabel.font = [UIFont systemFontOfSize:22];
+    button1.animateTap = NO;
 
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -104,6 +105,12 @@
     NSUInteger hours = totalSeconds / 3600;
     
     return hours == 0 ? [NSString stringWithFormat:@"%02lu:%02lu", (unsigned long)minutes, (unsigned long)seconds] : [NSString stringWithFormat:@"%02lu:%02lu:%02lu",(unsigned long)hours, (unsigned long)minutes, (unsigned long)seconds];
+}
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    if (size.width > size.height) { //we should be in landscape mode
+        self.timeText.hidden = NO;
+        
+    }
 }
 
 @end

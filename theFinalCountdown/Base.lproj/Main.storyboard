@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="8Xc-FA-NWb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Xc-FA-NWb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -15,20 +15,20 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Uc-vU-gSP" userLabel="Top Part">
-                                <rect key="frame" x="0.0" y="64" width="320" height="220"/>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Uc-vU-gSP" userLabel="Top Part">
+                                <rect key="frame" x="0.0" y="64" width="600" height="236"/>
                                 <subviews>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0q-ZD-j8N">
-                                        <rect key="frame" x="0.0" y="2" width="320" height="216"/>
+                                    <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0q-ZD-j8N">
+                                        <rect key="frame" x="0.0" y="10" width="600" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="426600068.10878801">
                                             <!--2014-07-09 12:01:08 +0000-->
                                         </date>
                                     </datePicker>
-                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACg-uO-YjG">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACg-uO-YjG">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="236"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="195"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -42,12 +42,18 @@
                                     <constraint firstItem="ACg-uO-YjG" firstAttribute="centerY" secondItem="1Uc-vU-gSP" secondAttribute="centerY" id="b9r-Ta-jim"/>
                                     <constraint firstItem="t0q-ZD-j8N" firstAttribute="centerX" secondItem="1Uc-vU-gSP" secondAttribute="centerX" id="sfF-rc-eLC"/>
                                 </constraints>
+                                <variation key="heightClass=compact">
+                                    <mask key="subviews">
+                                        <exclude reference="t0q-ZD-j8N"/>
+                                        <include reference="ACg-uO-YjG"/>
+                                    </mask>
+                                </variation>
                             </view>
-                            <view contentMode="top" translatesAutoresizingMaskIntoConstraints="NO" id="iZf-mv-v1y" userLabel="BottomHalf">
-                                <rect key="frame" x="0.0" y="284" width="320" height="284"/>
+                            <view contentMode="top" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iZf-mv-v1y" userLabel="BottomHalf">
+                                <rect key="frame" x="0.0" y="300" width="600" height="300"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5g-VY-d7z">
-                                        <rect key="frame" x="83" y="87" width="34" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5g-VY-d7z">
+                                        <rect key="frame" x="223" y="95" width="34" height="30"/>
                                         <state key="normal" title="Start">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -55,8 +61,8 @@
                                             <action selector="startTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="XpZ-9k-cTa"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G61-zh-9P3">
-                                        <rect key="frame" x="183" y="87" width="75" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G61-zh-9P3">
+                                        <rect key="frame" x="323" y="95" width="75" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="75" id="ho7-wF-Zab"/>
                                         </constraints>
@@ -85,9 +91,43 @@
                             <constraint firstItem="1Uc-vU-gSP" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="Fpv-Eg-Ipo"/>
                             <constraint firstItem="1Uc-vU-gSP" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="I82-GT-cNP"/>
                             <constraint firstItem="iZf-mv-v1y" firstAttribute="height" secondItem="kh9-bI-dsS" secondAttribute="height" multiplier="0.5" id="KYC-pL-QlT"/>
+                            <constraint firstItem="1Uc-vU-gSP" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" constant="200" id="KYx-yF-f1M">
+                                <variation key="heightClass=compact" constant="-200"/>
+                            </constraint>
+                            <constraint firstItem="1Uc-vU-gSP" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" constant="8" symbolic="YES" id="N3v-cj-BdH">
+                                <variation key="heightClass=compact" constant="64"/>
+                            </constraint>
                             <constraint firstItem="1Uc-vU-gSP" firstAttribute="width" secondItem="kh9-bI-dsS" secondAttribute="width" id="XWX-Og-9mC"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="iZf-mv-v1y" secondAttribute="bottom" id="ZId-rh-EGq"/>
+                            <constraint firstItem="1Uc-vU-gSP" firstAttribute="bottom" secondItem="kh9-bI-dsS" secondAttribute="bottom" id="hMv-PB-Vdh"/>
+                            <constraint firstItem="1Uc-vU-gSP" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="wMB-hN-TFX"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="KYx-yF-f1M"/>
+                                <exclude reference="N3v-cj-BdH"/>
+                                <exclude reference="hMv-PB-Vdh"/>
+                                <exclude reference="wMB-hN-TFX"/>
+                                <exclude reference="KYC-pL-QlT"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="iZf-mv-v1y"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="BSb-eQ-k7P"/>
+                                <include reference="I82-GT-cNP"/>
+                                <exclude reference="KYx-yF-f1M"/>
+                                <exclude reference="N3v-cj-BdH"/>
+                                <include reference="hMv-PB-Vdh"/>
+                                <include reference="wMB-hN-TFX"/>
+                                <exclude reference="2uU-qf-dSF"/>
+                                <exclude reference="6pM-MD-YT9"/>
+                                <exclude reference="KYC-pL-QlT"/>
+                                <exclude reference="ZId-rh-EGq"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Timer" id="GXH-0Z-DV3"/>
                     <connections>
@@ -98,7 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="820" y="124"/>
+            <point key="canvasLocation" x="1537.5" y="130.98591549295773"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2D5-GC-0uk">
@@ -116,7 +156,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5a6-eB-VPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282" y="129"/>
+            <point key="canvasLocation" x="528.75" y="136.26760563380282"/>
         </scene>
     </scenes>
 </document>

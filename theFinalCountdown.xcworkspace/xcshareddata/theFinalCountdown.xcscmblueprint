@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "417A92EC29CC1B6C280FF194AE3A58684A181B71",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "417A92EC29CC1B6C280FF194AE3A58684A181B71" : 0,
+    "70B29AB76DD19F00024CCB2E758701EF55B5D07A" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6ABD3D08-66F6-42BE-A126-C138280C0EA5",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "417A92EC29CC1B6C280FF194AE3A58684A181B71" : "theFinalCountdown-ios-0616\/",
+    "70B29AB76DD19F00024CCB2E758701EF55B5D07A" : "theFinalCountdown-ios-0616\/theFinalCountdown\/DKCircleButton\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "theFinalCountdown",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "theFinalCountdown.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:hdinhof1\/theFinalCountdown-ios-0616.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "417A92EC29CC1B6C280FF194AE3A58684A181B71"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/kronik\/DKCircleButton.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "70B29AB76DD19F00024CCB2E758701EF55B5D07A"
+    }
+  ]
+}
