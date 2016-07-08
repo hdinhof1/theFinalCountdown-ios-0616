@@ -144,7 +144,6 @@
 				D81E9F38196D666A00FFD46B /* FISViewController.h */,
 				D81E9F39196D666A00FFD46B /* FISViewController.m */,
 				D81E9F3B196D666A00FFD46B /* Images.xcassets */,
-				4D55493E1BCC3BB9001E3D77 /* Launch Screen.storyboard */,
 				D81E9F2A196D666A00FFD46B /* Supporting Files */,
 			);
 			path = theFinalCountdown;
@@ -153,6 +152,7 @@
 		D81E9F2A196D666A00FFD46B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4D55493E1BCC3BB9001E3D77 /* Launch Screen.storyboard */,
 				D81E9F2B196D666A00FFD46B /* theFinalCountdown-Info.plist */,
 				D81E9F2C196D666A00FFD46B /* InfoPlist.strings */,
 				D81E9F2F196D666A00FFD46B /* main.m */,

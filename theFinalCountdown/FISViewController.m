@@ -13,9 +13,13 @@
 
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet UILabel *timeText;
-@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (strong, nonatomic) NSTimer *countdownTimer;
 @property (nonatomic) NSInteger startingSeconds;
+@property (weak, nonatomic) IBOutlet DKCircleButton *startButton;
+@property (weak, nonatomic) IBOutlet DKCircleButton *pauseButton;
+
+//@property (strong, nonatomic) DKCircleButton *startButton;
+//@property (strong, nonatomic) DKCircleButton *pauseButton;
 
 @end
 
@@ -26,22 +30,17 @@
     [super viewDidLoad];
 
     self.timeText.adjustsFontSizeToFitWidth = YES;
-
-    DKCircleButton *button1 = [[DKCircleButton alloc] initWithFrame:CGRectMake(0, 0, 90, 90)];
     
-    button1.center = CGPointMake(160, 200);
-    button1.titleLabel.font = [UIFont systemFontOfSize:22];
-    button1.animateTap = NO;
-
-	// Do any additional setup after loading the view, typically from a nib.
+    self.startButton.animateTap = NO; //ill allow the animation for the pause button
+   	// Do any additional setup after loading the view, typically from a nib.
 }
-
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}- (IBAction)pauseTapped:(id)sender {
+}
+
+- (IBAction)pauseTapped:(id)sender {
     [self stopTimer];
     
     if ( [((UIButton *)sender).titleLabel.text isEqualToString:@"Pause"] ) {
@@ -59,8 +58,11 @@
     
     if ([((UIButton *)sender).titleLabel.text isEqualToString:@"Start"]) {
         [sender setTitle:@"Cancel" forState:UIControlStateNormal];
-        ((UIButton *)sender).tintColor = [UIColor redColor];
-        //should use the !negation logic
+        [self.startButton setBorderColor:[UIColor redColor]];
+        [self.startButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+        [self.startButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        [self.startButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+//        ((UIButton *)sender).tintColor = [UIColor redColor];
         self.pauseButton.enabled = YES;
         self.timeText.hidden = NO;
         
@@ -73,7 +75,11 @@
         [self stopTimer];
         self.startingSeconds = 0;
         [sender setTitle:@"Start" forState:UIControlStateNormal];
-        ((UIButton *)sender).tintColor = [UIColor greenColor];  // :)
+        //((UIButton *)sender).tintColor = [UIColor greenColor];  // :)
+        [self.startButton setBorderColor:[UIColor greenColor]];
+        [self.startButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
+        [self.startButton setTitleColor:[UIColor greenColor] forState:UIControlStateSelected];
+        [self.startButton setTitleColor:[UIColor greenColor] forState:UIControlStateHighlighted];
         self.pauseButton.enabled = NO;
         self.timeText.hidden = YES;
         self.datePicker.hidden = NO;
@@ -107,9 +113,8 @@
     return hours == 0 ? [NSString stringWithFormat:@"%02lu:%02lu", (unsigned long)minutes, (unsigned long)seconds] : [NSString stringWithFormat:@"%02lu:%02lu:%02lu",(unsigned long)hours, (unsigned long)minutes, (unsigned long)seconds];
 }
 -(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    if (size.width > size.height) { //we should be in landscape mode
+    if (size.width > size.height) { //we should be in landscape mode!
         self.timeText.hidden = NO;
-        
     }
 }
 
